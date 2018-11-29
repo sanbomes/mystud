@@ -1,0 +1,11 @@
+# I am trying to write good-ansible yaml with roles for 
+
+# app-tier - httpd
+
+
+
+
+# haproxy and tomcat as frontend
+
+
+#postgresql as db

@@ -1,0 +1,35 @@
+---
+# tasks file for good-ansible/roles/app-tier
+
+# Packages need to install - tomcat 
+# Enable tomcat at boot
+# create default web directory
+# copy index.html
+# restart tomcat service
+
+
+- name: Install {{ tom_pkg }}
+  yum: 
+    name: "{{ tom_pkg }}"
+    state: latest
+
+- name: enable tomcat at boot
+  service:
+    name: "{{ tom_srv }}"
+    enabled: yes
+
+- name: create tomcat default web directory
+  file:
+    path: "{{ tom_web_root }}"
+    state: directory
+
+- name: copy index.html to tomcat web root directory
+  template:
+    src: index.html.j2
+    dest: /usr/share/tomcat/webapps/ROOT/inidex.html 
+    mode: 0644
+
+- name: restart tomcat
+  service: 
+    name: "{{ tom_srv }}"
+    state: restarted
