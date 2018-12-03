@@ -5,7 +5,7 @@
 
 
 
-# haproxy and tomcat as frontend
+# haproxy as frontend and tomcat as app server
 
 
 #postgresql as db
