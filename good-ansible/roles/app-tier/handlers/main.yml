@@ -1,2 +1,8 @@
 ---
 # handlers file for good-ansible/roles/app-tier
+
+- name: restart_tomcat
+  service:
+    name: "{{ tom_srv }}"
+    state: restarted
+

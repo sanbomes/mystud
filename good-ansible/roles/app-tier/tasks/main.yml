@@ -26,10 +26,11 @@
 - name: copy index.html to tomcat web root directory
   template:
     src: index.html.j2
-    dest: /usr/share/tomcat/webapps/ROOT/inidex.html 
+    dest: /usr/share/tomcat/webapps/ROOT/index.html 
     mode: 0644
+  notify: restart_tomcat
 
-- name: restart tomcat
-  service: 
-    name: "{{ tom_srv }}"
-    state: restarted
+#- name: restart tomcat
+#  service: 
+#    name: "{{ tom_srv }}"
+#    state: restarted
